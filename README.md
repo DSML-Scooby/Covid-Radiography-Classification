@@ -5,6 +5,26 @@ Team: Kevin Lam + Natalie Umanzor + Silvia Kocsis
 ## Data Sources
 
 1. Data from COVID-19 Radiography Database
+https://www.kaggle.com/datasets/tawsifurrahCODESMITH-DSML-Alpha 2 - Transfer Learning Project
+Team: Kevin Lan/covid19-radiography-database?resource=download
+
+## Deployment in AWS
+
+## Model
+
+## List of experiments
+
+## Todo items
+
+1. Load data m + Natalie Umanto S3 bucket
+
+## Configurations
+zor + Silvia Kocsis
+
+
+## Data Sources
+
+1. Data from COVID-19 Radiography Database
 https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database?resource=download
 
 ## Deployment in AWS
