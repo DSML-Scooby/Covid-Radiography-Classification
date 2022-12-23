@@ -39,4 +39,4 @@ https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database?reso
 
 ## Configurations
 
-1. tf_gqu.txt contains the requirements needed to set RTX3080 on win64 platform as the gpu for Tensorflow. Installation should be done with Conda
+1. tf_gpu.txt contains the requirements needed to set RTX3080 on win64 platform as the gpu for Tensorflow. Installation should be done with Conda
