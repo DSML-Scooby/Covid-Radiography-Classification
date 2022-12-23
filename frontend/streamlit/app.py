@@ -66,25 +66,24 @@ elif section == 'Live Model':
     file = st.file_uploader('Upload Chest X-Ray Image Here', type = ['png', 'jpg'])
     if file is not None:
         st.text("Uploaded Image")
-        img = Image.open(io.BytesIO(file))
-        img = img.convert('RGB')
-        target_size = (299,299)
-        img = img.resize(target_size, Image.NEAREST)
-        img = Image.img_to_array(img)
+        image = Image.open(file)
+        st.image(image)
+
+        # Ignore the following 2 lines if expecting images input to be grayscaled and 299x299
+        image = image.convert('L')
+        image = image.resize((299,299))
+
+        # Array of pixels to be fed to model
+        input_img = np.asarray(image)
+        
+        # input_img
 
 
 
-
-        # image = Image.open(file)
-        # st.image(image, caption='Uploaded Image', use_column_width=True)
-        # st.write("")
-        # st.write("Classifying")
-        # label = 
-
-    # pass
 
     # # way to check if a button is clicked or not
-    # if st.button("Get Prediction"):
+    if st.button("Get Prediction"):
+        pass
     #     # Connect to Flask Predict
     #     url     =  'http://127.0.0.1:5000/.com:5000/predict'
     #     payload = json.dumps(inputs.values.tolist())
@@ -93,6 +92,7 @@ elif section == 'Live Model':
     #         st.write(np.array(resp.json()))
     #     except Exception as e:
     #         st.text(f"Could not process request because: {e}")
+
 else:
     st.subheader("Findings on Models Tried")
 
