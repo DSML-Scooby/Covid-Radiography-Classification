@@ -27,22 +27,25 @@ def local_css(file_name):
 # Load CSS template
 local_css("style/style.css")
 
+# Classification columns
+cols = ['Stats', 'precision', 'recall', 'f1-score', 'support']
+
 # Load Assets
 lottie_coding = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_v6njxply.json")
 inc_img = Image.open('../../graphs/Incheatmap1.png')
 incLoss = Image.open('../../graphs/inceptionLoss.png')
 incAcc = Image.open('../../graphs/inceptionAcc.png')
-incReport = pd.read_csv('../../graphs/InceptionReport.csv')
+incReport = pd.read_csv('../../graphs/InceptionReport.csv', names=cols, header=0)
 
 res_img = Image.open('../../graphs/Resheatmap2.png')
 resLoss = Image.open('../../graphs/resnetLoss.png')
 resAcc = Image.open('../../graphs/resnetAcc.png')
-resReport = pd.read_csv('../../graphs/resnetReport.csv')
+resReport = pd.read_csv('../../graphs/resnetReport.csv', names=cols, header=0)
 
 res25_img = Image.open('../../graphs/Res25heatmap3.png')
 res25Loss = Image.open('../../graphs/resnet25Loss.png')
 res25Acc = Image.open('../../graphs/resnet25Acc.png')
-res25Report = pd.read_csv('../../graphs/resnet25Report.csv')
+res25Report = pd.read_csv('../../graphs/resnet25Report.csv', names=cols, header=0)
 
 
 
