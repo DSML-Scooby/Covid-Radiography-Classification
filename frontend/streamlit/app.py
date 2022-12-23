@@ -75,7 +75,8 @@ elif section == 'Live Model':
 
         # Array of pixels to be fed to model
         input_img = np.asarray(image)
-        
+        input_list = input_img.tolist()
+        # input_list
         # input_img
 
 
