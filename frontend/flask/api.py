@@ -3,6 +3,7 @@ import pandas as pd
 import pickle
 import json
 import boto3
+import tensorflow as tf
 
 app = Flask(__name__)
 
@@ -14,9 +15,10 @@ def load_model():
                     )
     with open('saved_model.pb', 'wb') as mod:
         s3.download_fileobj('dsml-alpha-2-covid-radiography-classification', 'data/fullmodel/saved_model.pb', mod)
-        pipe = pickle.load(mod)
-    return pipe
-pipe = load_model()
+        new_model = tf.keras.models.load_model(mod)
+    return new_model
+
+model = load_model()
 
 @app.route('/', methods = ['GET'])
 def view():
@@ -24,6 +26,9 @@ def view():
 
 @app.route('/predict', methods = ['POST'])
 def predict():
+    data = request.json
+    pred = model.predict(data)
+    return json.dumps(pred.tolist())
     # data    = request.json
     # return 'This is our model result!'
 

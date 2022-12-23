@@ -84,15 +84,14 @@ elif section == 'Live Model':
 
     # # way to check if a button is clicked or not
     if st.button("Get Prediction"):
-        pass
-    #     # Connect to Flask Predict
-    #     url     =  'http://127.0.0.1:5000/.com:5000/predict'
-    #     payload = json.dumps(inputs.values.tolist())
-    #     resp    = requests.post(url, json = {'arr': payload})
-    #     try:    
-    #         st.write(np.array(resp.json()))
-    #     except Exception as e:
-    #         st.text(f"Could not process request because: {e}")
+        # Connect to Flask Predict
+        url     =  'http://127.0.0.1:5000/predict'
+        payload = json.dumps(input_list)
+        resp    = requests.post(url, json = {'arr': payload})
+        try:    
+            st.write(np.array(resp.json()))
+        except Exception as e:
+            st.text(f"Could not process request because: {e}")
 
 else:
     st.subheader("Findings on Models Tried")
@@ -114,9 +113,6 @@ else:
 
     # Second row
     with st.container():
-        # st.write("----")
-        # st.header("Base ResNet Model")
-        # st.write("##")
         image_column, text_column = st.columns((1,2))
         with image_column:
             st.image(res_img)
@@ -126,9 +122,6 @@ else:
 
     # Third row
     with st.container():
-        # st.write("----")
-        # st.header("ResNet Model with Dropout Changed")
-        # st.write("##")
         image_column, text_column = st.columns((1,2))
         with image_column:
             st.image(res25_img)
