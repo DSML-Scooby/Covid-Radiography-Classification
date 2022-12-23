@@ -7,6 +7,7 @@ import requests
 # from keras.models import load_model
 # from keras.preprocessing import image
 import numpy as np
+import pandas as pd
 import io
 
 # Emoji website https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -29,8 +30,22 @@ local_css("style/style.css")
 # Load Assets
 lottie_coding = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_v6njxply.json")
 inc_img = Image.open('../../graphs/Incheatmap1.png')
+incLoss = Image.open('../../graphs/inceptionLoss.png')
+incAcc = Image.open('../../graphs/inceptionAcc.png')
+incReport = pd.read_csv('../../graphs/InceptionReport.csv')
+
 res_img = Image.open('../../graphs/Resheatmap2.png')
+resLoss = Image.open('../../graphs/resnetLoss.png')
+resAcc = Image.open('../../graphs/resnetAcc.png')
+resReport = pd.read_csv('../../graphs/resnetReport.csv')
+
 res25_img = Image.open('../../graphs/Res25heatmap3.png')
+res25Loss = Image.open('../../graphs/resnet25Loss.png')
+res25Acc = Image.open('../../graphs/resnet25Acc.png')
+res25Report = pd.read_csv('../../graphs/resnet25Report.csv')
+
+
+
 
 # Sidebar for Organization
 st.title("COVID-19 Detection with Radiography")
@@ -102,32 +117,47 @@ else:
     # First row
     with st.container():
         st.write("----")
-        st.header("Models Tried")
+        # st.header("Models Tried")
         st.write("##")
         image_column, text_column = st.columns((1,2))
         with image_column:
             st.image(inc_img)
+            st.image(incLoss)
+            st.image(incAcc)
             # insert image
         with text_column:
             st.subheader("Base InceptionV3 Model")
+            st.write(incReport)
+
+    st.write("##")
+    st.write("----")
 
     # Second row
     with st.container():
         image_column, text_column = st.columns((1,2))
         with image_column:
             st.image(res_img)
+            st.image(resLoss)
+            st.image(resAcc)
             # insert image
         with text_column:
             st.subheader("Base ResNet Model")
+            st.write(resReport)
+
+    st.write("##")
+    st.write("----")
 
     # Third row
     with st.container():
         image_column, text_column = st.columns((1,2))
         with image_column:
             st.image(res25_img)
+            st.image(res25Loss)
+            st.image(res25Acc)
             # insert image
         with text_column:
             st.subheader("ResNet Model with Dropout Changed")
+            st.write(res25Report)
 
     
 
